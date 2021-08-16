@@ -2,4 +2,36 @@
   dynamic-form works!
 </p>
 
-<!-- <input type="button" value="+Add" /> -->
+
+
+<form [formGroup]="myDynamicFormGrp">
+
+  <div formArrayName="dynamicsFrm">
+    <input type="button" value="+Add" (click)="AddControl()" />
+
+    <div *ngFor="let ctrl of GetDynamicFrm.controls; let i=index">
+      <label for="ctrl-{{i}}">ctrl-{{i}}</label>
+      <input type="text" [formControlName]="i">
+    </div>
+
+
+  </div>
+
+</form>
+
+<hr />
+<form [formGroup]="dynamicRemarksGrp">
+  <input type="button" value="+AddRmk Control" (click)="AddRmkCtrl()" />
+
+  <div formArrayName="rmkDynamic" *ngFor="let rmkCtrl of dynamicRmkGetter.controls;let x=index">
+    <div [formGroupName]="x">
+      <label for="frm-{{x}}">From</label>
+      <input  type="text" id="frm-{{x}}" formControlName="from"><br/>
+      <label for="to-{{x}}">To</label>
+      <input  type="text" id="to-{{x}}" formControlName="to"><br/>
+      <label for="cnt-{{x}}">Comment</label>
+      <input  type="text" id="cnt-{{x}}" formControlName="comment">
+    </div>
+  </div>
+
+</form>
