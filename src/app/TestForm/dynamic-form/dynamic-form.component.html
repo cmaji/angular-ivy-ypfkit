@@ -24,13 +24,22 @@
   <input type="button" value="+AddRmk Control" (click)="AddRmkCtrl()" />
 
   <div formArrayName="rmkDynamic" *ngFor="let rmkCtrl of dynamicRmkGetter.controls;let x=index">
-    <div [formGroupName]="x">
-      <label for="frm-{{x}}">From</label>
-      <input  type="text" id="frm-{{x}}" formControlName="from"><br/>
-      <label for="to-{{x}}">To</label>
-      <input  type="text" id="to-{{x}}" formControlName="to"><br/>
-      <label for="cnt-{{x}}">Comment</label>
-      <input  type="text" id="cnt-{{x}}" formControlName="comment">
+    <div class="row" [formGroupName]="x">
+      <div class="col-md-2">
+        <p class="lead">Ticket {{x+1}}</p>
+      </div>
+      <div class="col-md-5">
+        <label for="frm-{{x}}">From</label>
+        <input  type="text" id="frm-{{x}}" formControlName="from" class="form-control mb-4"><br/>
+      </div>
+      <div class="col-md-5">
+        <label for="to-{{x}}">To</label>
+        <input  type="text" id="to-{{x}}" formControlName="to" class="form-control mb-4"><br/>
+      </div>
+      <div class="col-md-5">
+        <label for="cnt-{{x}}">Comment</label>
+        <input  type="text" id="cnt-{{x}}" formControlName="comments" class="form-control mb-4">
+      </div>
     </div>
   </div>
 

@@ -1,0 +1,17 @@
+<p>
+  form-with-validation works!
+</p>
+
+<form [formGroup]="BasicInfoGrp">
+  <label>First Name: </label>
+  <input type="text" formControlName="fname"><br/>
+  <label>Last Name: </label>
+  <input type="text" formControlName="lname"><br/>
+
+  <div fromGroupName="address">
+    <label>Street Name: </label>
+    <input type="text" formControlName="street"><br/>
+    <label>Contact No.: </label>
+    <input type="text" formControlName="phone"><br/>
+  </div>
+</form>

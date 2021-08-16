@@ -9,6 +9,7 @@ import { HelloComponent } from './hello.component';
 import { SimpleFormComponent } from './TestForm/simple-form/simple-form.component';
 import { TestGrpFormComponent } from './TestForm/test-grp-form/test-grp-form.component';
 import { DynamicFormComponent } from './TestForm/dynamic-form/dynamic-form.component';
+import { FormWithValidationComponent } from './TestForm/form-with-validation/form-with-validation.component';
 
 @NgModule({
   imports: [BrowserModule, AppRoutingModule, FormsModule, ReactiveFormsModule],
@@ -18,7 +19,8 @@ import { DynamicFormComponent } from './TestForm/dynamic-form/dynamic-form.compo
     CamelCasePipe,
     SimpleFormComponent,
     TestGrpFormComponent,
-    DynamicFormComponent
+    DynamicFormComponent,
+    FormWithValidationComponent
   ],
   bootstrap: [AppComponent]
 })
