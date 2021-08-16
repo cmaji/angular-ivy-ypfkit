@@ -1,0 +1,13 @@
+<p>
+  simple-form works!
+</p>
+
+<b>Basic Form</b>
+<form>
+  <label for="">Type heare & update second Textbox: </label>
+  <input type="text" #mynameraw [formControl]="nameraw" /><br /><br />
+
+  <label for="">Name: </label>
+  <input type="text" [formControl]="name" />
+  <input type="button" value="Update" (click)="updateForm(mynameraw.value)" />
+</form>

@@ -1,0 +1,34 @@
+<p>
+  test-grp-form works!
+</p>
+
+<form [formGroup]="CustomerBasicInfo">
+  <label for="f1n1">First Name: </label>
+  <input type="text" id="f1n1" formControlName="fname" /><br />
+  <label for="l1n1">Last Name: </label>
+  <input type="text" id="l1n1" formControlName="lname" /><br />
+  <label for="agn1">Age: </label>
+  <input type="text" id="agn1" formControlName="age" /><br />
+  <div formGroupName="address">
+    <h1>Address</h1>
+    <label for="s1n1">State: </label>
+    <input type="text" id="s1n1" formControlName="state" /><br />
+    <label for="c1n1">City: </label>
+    <input type="text" id="c1n1" formControlName="city" /><br />
+    <label for="st1n1">Street: </label>
+    <input type="text" id="st1n1" formControlName="street" /><br />
+    <label for="p1n1">Pincode: </label>
+    <input type="text" id="p1n1" formControlName="pincode" /><br />
+  </div>
+  <input type="submit" value="SUBMIT" (ngSubmit)="GetData()" />
+</form>
+<input type="button" value="GET" (click)="GetData()" />
+
+<b>Form Details</b>
+<p>
+  FirstName: {{this.CustomerBasicInfo.get('fname').value}} Address:
+  {{this.CustomerBasicInfo.get('address').get('state').value}}
+</p>
+<p>
+  {{this.CustomerBasicInfo.value}}
+</p>
