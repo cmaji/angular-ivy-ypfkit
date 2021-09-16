@@ -2,16 +2,40 @@
   form-with-validation works!
 </p>
 
-<form [formGroup]="BasicInfoGrp">
+<form [formGroup]="BasicInfoGrp" (ngSubmit)="SubmitForm()">
   <label>First Name: </label>
-  <input type="text" formControlName="fname"><br/>
-  <label>Last Name: </label>
-  <input type="text" formControlName="lname"><br/>
-
-  <div fromGroupName="address">
-    <label>Street Name: </label>
-    <input type="text" formControlName="street"><br/>
-    <label>Contact No.: </label>
-    <input type="text" formControlName="phone"><br/>
+  <input type="text" formControlName="fname"><br/><br/>
+  <div *ngIf="BasicFormControl.fname.invalid && (BasicFormControl.fname.touched || BasicFormControl.fname.dirty)">
+    <div *ngIf="BasicFormControl.fname.errors?.required">
+      <span>Please enter name</span>
+    </div>
   </div>
+
+
+
+  <label>Last Name: </label>
+  <input type="text" formControlName="lname"><br/><br/>
+  <label>Age: </label>
+  <input type="text" formControlName="age"><br/><br/>
+
+  <div formGroupName="address">
+    <label>Street Name: </label>
+    <input type="text" formControlName="street"><br/><br/>
+    <label>Street Name: </label>
+    <input type="text" formControlName="state"><br/><br/>
+    <div
+      *ngIf="BasicFormControl.address.get('state').invalid && (BasicFormControl.address.get('state').touched || BasicFormControl.address.get('state').dirty)">
+      <div *ngIf="BasicFormControl.address.get('state').errors?.required">
+        <span>Please enter State Name</span>
+      </div>
+
+    </div>
+
+    <label>Street Name: </label>
+    <input type="text" formControlName="city"><br/><br/>
+    <label>Contact No.: </label>
+    <input type="text" formControlName="phone"><br/><br/>
+  </div>
+
+  <input type="submit" value="SUBMIT" >
 </form>
